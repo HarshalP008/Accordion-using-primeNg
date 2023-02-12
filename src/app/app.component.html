@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-sm-4">
+      <form [formGroup]='form' (ngSubmit)="onSubmit()" class="border border-dark p-4 shadow-sm">
+        <div class="form-group">
+          <label for="sectionHeader">Header</label>
+          <input id="sectionHeader" type="text" pInputText required class="form-control" formControlName="headerName">
+          <small *ngIf ="!form.get('headerName').valid && form.get('headerName').touched" class="form-text text-danger">
+            <span *ngIf= "form.get('headerName')?.errors?.['required']" >Header is required</span>
+        </small>
+      </div>
+      <div class="form-group mt-2 mb-2">
+          <label>Section Details</label>
+          <textarea pInputTextarea class="form-control" formControlName="sectionDetails"></textarea>
+        </div>
+        <div class="form-group text-center">
+          <button pButton type="Submit" label="Add" class="p-button-text-primary" [disabled]= "!form.valid"></button>
+        </div>
+      </form>
+      
+    </div>
+    <div class="col-sm-6">
+      <div class="border border-dark shadow">
+        <app-child-one [accSections]="topicList"></app-child-one>
+      </div>
+    </div>
+  </div>
+</div>

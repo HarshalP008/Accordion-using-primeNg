@@ -1,0 +1,5 @@
+<p-accordion *ngFor="let topic of accList" [multiple]="true">
+  <p-accordionTab header={{topic.headerName}}>
+    <p>{{topic.sectionDetails}}</p>
+  </p-accordionTab>
+</p-accordion>
